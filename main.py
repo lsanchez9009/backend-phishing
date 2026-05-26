@@ -21,7 +21,7 @@ PALABRAS_SOSPECHOSAS = ["urgente", "contraseña", "bloqueado", "banco", "verific
 @app.post("/analizar")
 async def analizar_correo(correo: EmailRequest):
     texto_minusculas = correo.texto.lower()
-    coincidencias = [palabra for palabra en PALABRAS_SOSPECHOSAS if palabra in texto_minusculas]
+    coincidencias = [palabra for palabra in PALABRAS_SOSPECHOSAS if palabra in texto_minusculas]
     
     if coincidencias:
         return {
