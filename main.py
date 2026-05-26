@@ -4,15 +4,14 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-# --- INICIO DE LA SOLUCIÓN CORS ---
+# Configuración estricta de CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # El asterisco permite que cualquier web se conecte (ideal para pruebas/MVP)
+    allow_origins=["*"],  # Permite todas las conexiones
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["*"],  # Permite GET, POST, etc.
     allow_headers=["*"],
 )
-# --- FIN DE LA SOLUCIÓN CORS ---
 
 class EmailRequest(BaseModel):
     texto: str
